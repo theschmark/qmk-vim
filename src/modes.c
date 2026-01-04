@@ -1,3 +1,4 @@
+#include "mac_mode.h"
 #include "modes.h"
 #include "numbered_actions.h"
 #include "motions.h"
@@ -25,7 +26,7 @@ static bool process_g_cmd(uint16_t keycode, const keyrecord_t *record) {
             case KC_G:
                 // this doesn't quite work for all programs
                 tap_code16(VCMD(KC_A));
-                wait_ms(200);
+                wait_ms(10);
                 tap_code(KC_UP);
                 break;
             default:
@@ -202,7 +203,7 @@ bool process_normal_mode(uint16_t keycode, const keyrecord_t *record) {
             case LSFT(KC_G):
                 // this doesn't quite work for all programs
                 tap_code16(VCMD(KC_A));
-                wait_ms(200);
+                wait_ms(10);
                 tap_code(KC_DOWN);
                 NO_RECORD_ACTION();
                 break;
