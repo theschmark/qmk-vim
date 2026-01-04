@@ -100,6 +100,14 @@ bool process_motions(uint16_t keycode, const keyrecord_t *record, uint16_t qk_mo
             set_visual_direction(V_FORWARD);
             register_motion(qk_mods | VIM_DLR, record);
             break;
+        case LCTL(KC_D):
+            set_visual_direction(V_FORWARD);
+            register_motion(qk_modes | KC_PGDN, record);
+            break;
+        case LCTL(KC_U):
+            set_visual_direction(V_BACKWARD);
+            register_motion(qk_mods | KG_PGUP, record);
+            break;
         default:
             /* motion_counter = 0; */
             return true;
