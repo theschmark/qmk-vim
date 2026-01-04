@@ -218,6 +218,10 @@ bool process_normal_mode(uint16_t keycode, const keyrecord_t *record) {
                 NO_RECORD_ACTION();
                 break;
 #endif
+            case KC_SLSH:
+                tap_code16(VIM_MAC_NOMAC(LCMD(KC_F), LCTL(KC_F))); 
+                insert_mode();
+                break;
             default:
                 NO_RECORD_ACTION();
                 if (keycode >= QK_MODS && (keycode & 0xFF00) != QK_LSFT) {
