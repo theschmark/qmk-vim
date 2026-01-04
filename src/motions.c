@@ -102,7 +102,7 @@ bool process_motions(uint16_t keycode, const keyrecord_t *record, uint16_t qk_mo
             break;
         case LCTL(KC_D):
             set_visual_direction(V_FORWARD);
-            register_motion(qk_modes | KC_PGDN, record);
+            register_motion(qk_mods | KC_PGDN, record);
             break;
         case LCTL(KC_U):
             set_visual_direction(V_BACKWARD);
