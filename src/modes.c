@@ -298,6 +298,10 @@ bool process_visual_mode(uint16_t keycode, const keyrecord_t *record) {
 #endif
                 normal_mode();
                 return false;
+            case LSFT(KC_A):
+                VIM_END();
+                insert_mode();
+                return false; 
             default:
                 if (keycode >= QK_MODS && (keycode & 0xFF00) != QK_LSFT) {
                     tap_code16(keycode);
