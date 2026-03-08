@@ -18,6 +18,8 @@
 
 #include QMK_KEYBOARD_H
 
+void vim_mode_changed_user(void);
+
 // Check to see if vim mode is enabled
 bool vim_mode_enabled(void);
 // Enable vim mode

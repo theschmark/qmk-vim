@@ -24,6 +24,10 @@ extern process_func_t process_func;
 
 static bool vim_enabled = false;
 
+__attribute__((weak)) void vim_mode_changed_user(void) {
+    // Do nothing
+}
+
 #ifdef VIM_FOR_ALL
 // Check to see if mac mode is enabled
 bool vim_for_mac_enabled(void) {
@@ -32,14 +36,17 @@ bool vim_for_mac_enabled(void) {
 // Enable mac mode
 void enable_vim_for_mac(void) {
     vim_for_mac = true;
+    vim_mode_changed_user();
 }
 // Disable mac mode
 void disable_vim_for_mac(void) {
     vim_for_mac = false;
+    vim_mode_changed_user();
 }
 // Toggle mac mode
 void toggle_vim_for_mac(void) {
     vim_for_mac = !vim_for_mac;
+    vim_mode_changed_user();
 }
 #endif
 
@@ -51,10 +58,12 @@ bool vim_mode_enabled(void) {
 void enable_vim_mode(void) {
     vim_enabled = true;
     normal_mode();
+    vim_mode_changed_user();
 }
 // Disable vim mode
 void disable_vim_mode(void) {
     vim_enabled = false;
+    vim_mode_changed_user();
 }
 // Toggle vim mode
 void toggle_vim_mode(void) {
@@ -64,6 +73,7 @@ void toggle_vim_mode(void) {
     else {
         enable_vim_mode();
     }
+    vim_mode_changed_user();
 }
 
 #ifdef ONESHOT_VIM
